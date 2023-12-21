@@ -1,0 +1,22 @@
+.storage{
+  text-align: center;
+}
+table,th,td{
+  margin: auto;
+  border: 2px solid orchid;
+  border-collapse:collapse;
+}
+th,td
+{
+  padding: 10px;
+}
+.App{
+  background-color: antiquewhite;
+}
+div h1{
+  color:purple;
+}
+button{
+  background-color: rgb(12, 218, 190);
+  color:rgb(207, 5, 190);
+}
