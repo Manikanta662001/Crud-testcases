@@ -20,7 +20,7 @@ function Apicall(props) {
   return (
     <div>
         <button onClick={handleApicall}>Api call</button>
-        {error && <span>{error}</span>}
+        {error && <span className='error' data-testId={"error-span"} style={{color:"red"}}>{error}</span>}
         <ul>
         {
             posts?.map((item)=>{

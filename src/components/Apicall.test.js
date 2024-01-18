@@ -54,8 +54,12 @@ describe('Apicall Component', () => {
     await waitFor(() => {
       const errorMessage = screen.getByText(/API error/);
       expect(errorMessage).toBeInTheDocument();
+      const element = screen.getByTestId("error-span")
+      expect(element).toBeVisible()
+      expect(element).toHaveClass("error")
+      expect(element).toHaveStyle({color:"red"})
     });
-
+    expect(screen.queryAllByRole("listitem")).not.toBeNull()
     // Ensure that the list is not rendered
     const items = screen.queryAllByRole('listitem');
     expect(items).toHaveLength(0);
