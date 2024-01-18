@@ -6,8 +6,12 @@ import userEvent from '@testing-library/user-event'
 describe("List compo",()=>{
     it('it should show heading',()=>{
         render(<List/>)
-        const heading = screen.getByRole('heading')
+        const heading = screen.getByRole('heading',{level:1})
         expect(heading).toBeInTheDocument()
+    })
+    it("initially it will show data",()=>{
+        render(<List/>)
+        expect(screen.getAllByTestId("record")).toHaveLength(3)
     })
     it('add user after button click',async()=>{
         render(<List/>)
