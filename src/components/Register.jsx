@@ -111,7 +111,9 @@ const Register = () => {
               type="checkbox"
               label="Subscribe to our newsletter"
               checked={subscribe}
-              onChange={(event) => setSubscribe(Boolean(event.target.value))}
+              onChange={(event) => {
+                setSubscribe(event.target.checked)
+              }}
             />
           </Form.Group>
           <Form.Group>
