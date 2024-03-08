@@ -9,13 +9,13 @@ const skills = [
   { value: "svelte", label: "Svelte" },
   { value: "angular", label: "Angular" },
   { value: "javascript", label: "JavaScript" },
-  { value: "nodejs", label: "Node.js" }
+  { value: "nodejs", label: "Node.js" },
 ];
 
 const initialState = {
   name: "",
   email: "",
-  password: ""
+  password: "",
 };
 
 const Register = () => {
@@ -30,7 +30,7 @@ const Register = () => {
     setState((prevState) => {
       return {
         ...prevState,
-        [name]: value
+        [name]: value,
       };
     });
   };
@@ -40,7 +40,7 @@ const Register = () => {
     setErrorMsg("");
     setSuccessMsg("");
     const allFieldsEntered = Object.keys(state).every(
-      (key) => state[key].trim() !== "" && selectedSkill && subscribe
+      (key) => state[key].trim() !== "" 
     );
     if (allFieldsEntered) {
       // code for doing registration
@@ -97,8 +97,9 @@ const Register = () => {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="password">
-              
-            <Form.Label data-testid={'selected_skill'}>Select your skills</Form.Label>
+            <Form.Label data-testid={"selected_skill"}>
+              Select your skills
+            </Form.Label>
             <Select
               options={skills}
               isMulti
@@ -111,8 +112,8 @@ const Register = () => {
               type="checkbox"
               label="Subscribe to our newsletter"
               checked={subscribe}
-              onChange={(event) => {
-                setSubscribe(event.target.checked)
+              onChange={() => {
+                setSubscribe(!subscribe);
               }}
             />
           </Form.Group>
@@ -120,9 +121,7 @@ const Register = () => {
             <Button variant="secondary" type="submit">
               Register
             </Button>
-            <Button>
-              Dummy
-            </Button>
+            <Button>Dummy</Button>
           </Form.Group>
         </Form>
       </div>

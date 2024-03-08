@@ -8,6 +8,7 @@ describe("List compo",()=>{
         render(<List/>)
         const heading = screen.getByRole('heading',{level:1})
         expect(heading).toBeInTheDocument()
+        expect(heading).toHaveTextContent("List")
     })
     it("initially it will show data",()=>{
         render(<List/>)
