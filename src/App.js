@@ -10,6 +10,7 @@ import Practice from "./components/Practice";
 import Another from "./components/Another";
 import Apicall from "./components/Apicall";
 import List from "./components/List";
+import TestWithMockData from "./components/TestwithMockdata";
 import Api2 from "./components/Api2";
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Another />
       <Apicall url={"https://jsonplaceholder.typicode.com/posts"} />
       <List />
+      <TestWithMockData data={[]}/>
       <Api2 />
     </div>
   );
