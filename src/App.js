@@ -28,6 +28,7 @@ function App() {
       <List />
       <TestWithMockData data={[]}/>
       <Api2 />
+      <AllEvents />
     </div>
   );
 }
