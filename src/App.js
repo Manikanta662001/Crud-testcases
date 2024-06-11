@@ -12,6 +12,7 @@ import Apicall from "./components/Apicall";
 import List from "./components/List";
 import TestWithMockData from "./components/TestwithMockdata";
 import Api2 from "./components/Api2";
+import AllEvents from "./components/AllEvents";
 function App() {
   return (
     <div className="App">
