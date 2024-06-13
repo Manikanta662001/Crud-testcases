@@ -12,6 +12,8 @@ describe("AllEvents.js file testcases", () => {
     render(<AllEvents />);
     const inputbox = screen.getByLabelText("Name:");
     expect(inputbox).toBeRequired();
+    expect(inputbox).toHaveAttribute('required');
+    expect(inputbox).not.toHaveAttribute('disabled');
     fireEvent.change(inputbox, { target: { value: "mani" } });
     expect(inputbox).toHaveValue("mani");
     expect(inputbox).toHaveClass("capital");
@@ -27,7 +29,7 @@ describe("AllEvents.js file testcases", () => {
     fireEvent.focus(locationBox);
     expect(locationBox).toHaveDisplayValue("HYB");
     expect(locationBox).toHaveClass("loc focused");
-    fireEvent.change(locationBox,{target:{value:'BLR'}});
+    fireEvent.change(locationBox, { target: { value: 'BLR' } });
     expect(locationBox.value).toBe("BLR");
     fireEvent.blur(locationBox);
     expect(locationBox).not.toHaveClass("loc focused");
@@ -37,6 +39,7 @@ describe("AllEvents.js file testcases", () => {
     const selectBox = screen.getByLabelText("Select State:");
     fireEvent.click(selectBox);
     const allOptions = screen.getAllByRole("option");
+    expect(allOptions).toHaveLength(7);
     expect(allOptions.length).toBe(7);
     // `fireEvent.click` on options doesn't change value directly
     //fireEvent.click(allOptions[2]);
@@ -67,5 +70,17 @@ describe("AllEvents.js file testcases", () => {
     expect(sum).toBeTruthy();
     expect(sum).toBeGreaterThan(8);
     expect(sum).toBeLessThan(11);
+  });
+  it("KeyDown event", () => {
+    render(<AllEvents />);
+    const keyDownInput = screen.getByPlaceholderText('Enter Something.....')
+    fireEvent.keyDown(keyDownInput, { key: 'A' });
+    expect(keyDownInput.value).toBe('A')
+  })
+  it('KeyUp event', () => {
+    render(<AllEvents />);
+    const keyUpInput = screen.getByPlaceholderText('Enter Something.....');
+    fireEvent.keyUp(keyUpInput, { key: 'B' });
+    expect(screen.getByText('Key Released: B')).toBeInTheDocument();
   });
 });
