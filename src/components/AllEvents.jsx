@@ -5,6 +5,8 @@ const AllEvents = () => {
   const [location, setLocation] = useState({ text: "", focused: false });
   const [state, setState] = useState("");
   const [gender, setGender] = useState("");
+  const [keyPressed,setKeyPressed] = useState('')
+  const [keyReleased,setkeyReleased] = useState('')
   const [capitalText, setCapitalText] = useState(true);
   const handleClick = (e) => {
     e.preventDefault();
@@ -23,6 +25,13 @@ const AllEvents = () => {
   };
   const handleRadio = (e) => {
     setGender(e.target.value);
+  };
+  const handleKeyDown = (e)=>{
+    console.log("KEY::::",e.key,typeof e.key)
+    setKeyPressed(e.key);
+  }
+  const handleKeyUp = (event) => {
+    setkeyReleased(event.key);
   };
   return (
     <div style={{ textAlign: "center" }}>
@@ -106,6 +115,12 @@ const AllEvents = () => {
         </div>
         <div>
           <button disabled>Submit</button>
+        </div>
+        <div>
+          <label htmlFor="key">keyUp & keyDown: </label>
+          <input type="text" placeholder="Enter Something....." onKeyDown={handleKeyDown} value={keyPressed|| keyReleased} onKeyUp={handleKeyUp}/>
+          <p>Key Pressed: {keyPressed}</p>
+          <p>Key Released: {keyReleased}</p>
         </div>
       </form>
     </div>
