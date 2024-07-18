@@ -71,8 +71,8 @@ class Storage extends Component {
       <div className='storage'>
         <h1>Form</h1>
         <form onSubmit={this.handleSubmit}>
-          <label>Username: </label>
-          <input type="text" placeholder="Enter user name" onChange={this.handleChange} value={this.state.data.name} name='name' />
+          <label for={'username'}>Username: </label>
+          <input type="text" id='username' placeholder="Enter user name" onChange={this.handleChange} value={this.state.data.name} name='name' />
           <label>Age: </label>
           <input type="number" placeholder="Enter user age" onChange={this.handleChange} value={this.state.data.age} name='age' />
           <button>{this.state.togbtn ? "Update" : 'Submit'}</button>

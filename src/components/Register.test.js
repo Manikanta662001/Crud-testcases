@@ -1,4 +1,4 @@
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, fireEvent, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Register from "./Register";
 describe("Register component testcases", () => {
@@ -48,6 +48,8 @@ describe("Register component testcases", () => {
     await userEvent.click(buttonElement);
     const alertElement = screen.getByRole("alert");
     expect(alertElement).toBeInTheDocument();
-    expect(alertElement).toHaveTextContent('You have successfully registered')
+    expect(alertElement).toHaveTextContent('You have successfully registered');
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    expect(screen.queryByText('You have successfully registered')).toBeNull();
   });
 });

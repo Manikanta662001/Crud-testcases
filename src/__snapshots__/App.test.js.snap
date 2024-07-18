@@ -15,10 +15,13 @@ exports[`Testing App compo Snapshot of App 1`] = `
         Form
       </h1>
       <form>
-        <label>
+        <label
+          for="username"
+        >
           Username: 
         </label>
         <input
+          id="username"
           name="name"
           placeholder="Enter user name"
           type="text"
@@ -455,6 +458,163 @@ exports[`Testing App compo Snapshot of App 1`] = `
       <button>
         Remove user
       </button>
+    </div>
+    <div>
+      <h3>
+         List 
+      </h3>
+      <button>
+        Add to List
+      </button>
+      <button>
+        Toggle text
+      </button>
+    </div>
+    <h1>
+      List of Users
+    </h1>
+    <p>
+      No users found
+    </p>
+    <div
+      style="text-align: center;"
+    >
+      <form>
+        <h1>
+          All Events
+        </h1>
+        <div>
+          <label
+            for="name"
+          >
+            Name: 
+          </label>
+          <input
+            class="capital"
+            id="name"
+            name="name"
+            placeholder="Enter Your Name"
+            required=""
+            type="text"
+            value=""
+          />
+          <button>
+            Change Boolean
+          </button>
+        </div>
+        <div>
+          <label
+            for="location"
+          >
+            Location: 
+          </label>
+          <input
+            id="location"
+            name="location"
+            placeholder="Enter Your Location"
+            type="text"
+            value=""
+          />
+        </div>
+        <div>
+          <label
+            for="states"
+          >
+            Select State: 
+          </label>
+          <select
+            id="states"
+            name="states"
+          >
+            <option
+              value=""
+            />
+            <option
+              value="AP"
+            >
+              AP
+            </option>
+            <option
+              value="TS"
+            >
+              TS
+            </option>
+            <option
+              value="MH"
+            >
+              MH
+            </option>
+            <option
+              value="NP"
+            >
+              NP
+            </option>
+            <option
+              value="KA"
+            >
+              KA
+            </option>
+            <option
+              value="TN"
+            >
+              TN
+            </option>
+          </select>
+          <p />
+        </div>
+        <div>
+          <label
+            for="gender"
+          >
+            Gender: 
+          </label>
+          <div>
+            <label>
+              <input
+                id="gender"
+                name="gender"
+                type="radio"
+                value="Male"
+              />
+               Male
+            </label>
+            <label>
+              <input
+                id="gender"
+                name="gender"
+                type="radio"
+                value="Female"
+              />
+               Female
+            </label>
+          </div>
+        </div>
+        <div>
+          <button
+            disabled=""
+          >
+            Submit
+          </button>
+        </div>
+        <div>
+          <label
+            for="key"
+          >
+            keyUp & keyDown: 
+          </label>
+          <input
+            placeholder="Enter Something....."
+            type="text"
+            value=""
+          />
+          <p>
+            Key Pressed: 
+          </p>
+          <p>
+            Key Released: 
+          </p>
+        </div>
+      </form>
     </div>
   </div>
 </DocumentFragment>
