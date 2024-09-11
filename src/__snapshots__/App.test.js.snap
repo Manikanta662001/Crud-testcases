@@ -616,6 +616,14 @@ exports[`Testing App compo Snapshot of App 1`] = `
         </div>
       </form>
     </div>
+    <div>
+      <h1>
+        Api Call with Fetch
+      </h1>
+      <div>
+        Loading.....
+      </div>
+    </div>
   </div>
 </DocumentFragment>
 `;

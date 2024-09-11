@@ -13,6 +13,7 @@ import List from "./components/List";
 import TestWithMockData from "./components/TestwithMockdata";
 import Api2 from "./components/Api2";
 import AllEvents from "./components/AllEvents";
+import FetchApiCall from "./components/FetchApiCall";
 function App() {
   return (
     <div className="App">
@@ -30,6 +31,7 @@ function App() {
       <TestWithMockData data={[]}/>
       <Api2 />
       <AllEvents />
+      <FetchApiCall/>
     </div>
   );
 }

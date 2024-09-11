@@ -16,7 +16,7 @@ describe("Apicall Component", () => {
     ];
 
     // Mock Axios get method
-    axios.get.mockResolvedValueOnce({ data: mockData });
+    axios.get.mockResolvedValueOnce({ data: mockData, status: 200 });
 
     // Render the component
     render(<Apicall url={url} />);
@@ -33,6 +33,32 @@ describe("Apicall Component", () => {
     // Check if the API call result is rendered
     expect(screen.getByText("Post 1")).toBeInTheDocument();
     expect(screen.getByText("Post 2")).toBeInTheDocument();
+    expect(axios.get).toHaveBeenCalledTimes(1);
+    expect(axios.get).toHaveBeenCalledWith(url);
+  });
+
+  it("fetches and displays error message on button click", async () => {
+    // Mock Axios get method
+    axios.get.mockResolvedValueOnce({
+      data: { message: "Something Went Wrong" },
+      status: 400,
+    });
+
+    // Render the component
+    render(<Apicall url={url} />);
+
+    // Click the button to trigger the API call
+    userEvent.click(screen.getByRole("button"));
+
+    // Wait for the error message to be displayed
+    await waitFor(() => {
+      const errorMessage = screen.getByText(/Something Went Wrong/);
+      expect(errorMessage).toBeInTheDocument();
+      const element = screen.getByTestId("error-span");
+      expect(element).toBeVisible();
+      expect(element).toHaveClass("error");
+      expect(element).toHaveStyle({ color: "red" });
+    });
     expect(axios.get).toHaveBeenCalledTimes(1);
     expect(axios.get).toHaveBeenCalledWith(url);
   });
