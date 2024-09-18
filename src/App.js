@@ -14,6 +14,8 @@ import TestWithMockData from "./components/TestwithMockdata";
 import Api2 from "./components/Api2";
 import AllEvents from "./components/AllEvents";
 import FetchApiCall from "./components/FetchApiCall";
+import DataComponent from "./components/DataComponent";
+import CounterComponent from "./components/CounterComponent";
 function App() {
   return (
     <div className="App">
@@ -28,10 +30,12 @@ function App() {
       <Another />
       <Apicall url={"https://jsonplaceholder.typicode.com/posts"} />
       <List />
-      <TestWithMockData data={[]}/>
+      <TestWithMockData data={[]} />
       <Api2 />
       <AllEvents />
-      <FetchApiCall/>
+      <FetchApiCall />
+      <DataComponent />
+      <CounterComponent />
     </div>
   );
 }
