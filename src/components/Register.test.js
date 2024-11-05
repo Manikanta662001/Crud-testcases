@@ -9,12 +9,10 @@ describe("Register component testcases", () => {
   });
   it("render correctly or not of subheading", () => {
     render(<Register />);
-    let element = screen.getByRole(
-      "heading",
-      { level: 6 } || {
-        name: /Please enter your details below to register yourself./i,
-      }
-    );
+    let element = screen.getByRole("heading", {
+      level: 6,
+      name: /Please enter your details below to register yourself./i,
+    });
     expect(element).toBeInTheDocument();
   });
 
@@ -48,8 +46,8 @@ describe("Register component testcases", () => {
     await userEvent.click(buttonElement);
     const alertElement = screen.getByRole("alert");
     expect(alertElement).toBeInTheDocument();
-    expect(alertElement).toHaveTextContent('You have successfully registered');
+    expect(alertElement).toHaveTextContent("You have successfully registered");
     await new Promise((resolve) => setTimeout(resolve, 3000));
-    expect(screen.queryByText('You have successfully registered')).toBeNull();
+    expect(screen.queryByText("You have successfully registered")).toBeNull();
   });
 });

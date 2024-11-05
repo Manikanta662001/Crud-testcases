@@ -5,10 +5,13 @@ function Apicall(props) {
   const [posts, setposts] = useState(null);
   const [error, seterror] = useState("");
   const handleApicall = async () => {
-    let result;
+    let response;
     try {
-      result = await axios.get(props.url);
-      setposts(result.data);
+      response = await axios.get(props.url);
+      if (response.status === 400) {
+        throw new Error(response.data.message);
+      }
+      setposts(response.data);
     } catch (err) {
       seterror(err.message);
     }
