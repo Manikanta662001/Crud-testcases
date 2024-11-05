@@ -1,6 +1,7 @@
-import { render, fireEvent, screen, waitFor } from "@testing-library/react";
+import { render, fireEvent, screen, waitFor,act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Register from "./Register";
+jest.useFakeTimers();
 describe("Register component testcases", () => {
   it("render correctly or not", () => {
     render(<Register />);
@@ -43,11 +44,15 @@ describe("Register component testcases", () => {
       "Mani@6620"
     );
     const buttonElement = screen.getByRole("button", { name: /Register/i });
-    await userEvent.click(buttonElement);
+    act(()=>{
+      userEvent.click(buttonElement);
+    });
     const alertElement = screen.getByRole("alert");
     expect(alertElement).toBeInTheDocument();
-    expect(alertElement).toHaveTextContent("You have successfully registered");
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    expect(screen.queryByText("You have successfully registered")).toBeNull();
+    expect(alertElement).toHaveTextContent('You have successfully registered');
+    act(()=>{
+      jest.advanceTimersByTime(3000)
+    })
+    expect(screen.queryByText('You have successfully registered')).toBeNull();
   });
 });
