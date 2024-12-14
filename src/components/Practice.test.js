@@ -26,7 +26,8 @@ describe('Tests for practice',()=>{
         //to get the btn by role which is hidden
         const btns = screen.getAllByRole('button')
         //using selected
-        const btn = screen.getByRole('tab', { selected: true })
+        const btn = screen.getByRole('tab', { selected: true });
+        expect(btn).toHaveAttribute('role',"tab")
         // console.log(btns)
         //by busy
         // const ele=getByRole('alert', { busy: false })
