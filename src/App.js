@@ -16,7 +16,13 @@ import AllEvents from "./components/AllEvents";
 import FetchApiCall from "./components/FetchApiCall";
 import DataComponent from "./components/DataComponent";
 import CounterComponent from "./components/CounterComponent";
+import BuggyComponent from "./components/error-boundary/BuggyComponent";
+import { ErrorBoundary } from "react-error-boundary";
+import ErrorFallback from "./components/error-boundary/ErrorFallback";
 function App() {
+  const handleReset = () => {
+    console.log("RESETING:::::");
+  };
   return (
     <div className="App">
       <h1>Hello</h1>
@@ -36,6 +42,9 @@ function App() {
       <FetchApiCall />
       <DataComponent />
       <CounterComponent />
+      <ErrorBoundary FallbackComponent={ErrorFallback} onReset={handleReset}>
+        <BuggyComponent />
+      </ErrorBoundary>
     </div>
   );
 }

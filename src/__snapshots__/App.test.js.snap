@@ -624,6 +624,23 @@ exports[`Testing App compo Snapshot of App 1`] = `
         Loading.....
       </div>
     </div>
+    <div>
+      Loading......
+    </div>
+    <div>
+      <h1>
+        Count: 0
+      </h1>
+      <button>
+        +
+      </button>
+      <button>
+        -
+      </button>
+      <button>
+        reset
+      </button>
+    </div>
   </div>
 </DocumentFragment>
 `;
