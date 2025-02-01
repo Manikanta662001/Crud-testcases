@@ -22,7 +22,7 @@ describe("Tests for Api2 component", () => {
         { id: 3, name: "king" },
       ],
     };
-    axios.get.mockResolvedValueOnce(response);
+    jest.spyOn(axios, "get").mockResolvedValueOnce(response);
     render(<Api2 />);
     await waitFor(() => {
       const header = screen.getByRole("heading", { level: 1 });
@@ -34,7 +34,7 @@ describe("Tests for Api2 component", () => {
   });
   test("fetch data with an error", async () => {
     const response = { message: "something went wrong" };
-    axios.get.mockRejectedValueOnce(response);
+    jest.spyOn(axios, "get").mockRejectedValueOnce(response);
     render(<Api2 />);
     // await expect(screen.queryByText(/something went wrong/i)).toBeInTheDocument()
     await waitFor(() => {
