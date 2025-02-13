@@ -4,6 +4,8 @@ import axios from "axios";
 function Apicall(props) {
   const [posts, setposts] = useState(null);
   const [error, seterror] = useState("");
+  const [file, setFile] = useState(null);
+  const [uploadProgress, setUploadProgress] = useState(0);
   const handleApicall = async () => {
     let response;
     try {
@@ -16,8 +18,30 @@ function Apicall(props) {
       seterror(err.message);
     }
   };
-  console.log(error, posts, "1717");
-
+  console.log(error, posts, file, uploadProgress, "1717");
+  const handleFileUpload = (e) => {
+    setFile(e.target.files[0]);
+  };
+  const handleUploadClick = async () => {
+    const formData = new FormData();
+    formData.append("file", file);
+    const response = await axios.post(
+      "http://localhost:5000/upload-file",
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        onUploadProgress: (progressEvent) => {
+          // Calculate progress percentage
+          const percentCompleted = Math.round(
+            (progressEvent.loaded * 100) / (progressEvent.total || 1)
+          );
+          setUploadProgress(percentCompleted);
+        },
+      }
+    );
+  };
   return (
     <div>
       <button onClick={handleApicall}>Api call</button>
@@ -35,6 +59,12 @@ function Apicall(props) {
           return <li key={item.id}>{item.title}</li>;
         })}
       </ul>
+      <input type="file" onChange={handleFileUpload} />
+      <button onClick={handleUploadClick}>Upload</button>
+      <span>Uploading - {uploadProgress}</span>
+      <progress value={uploadProgress} max="100">
+        {uploadProgress}%
+      </progress>
     </div>
   );
 }
