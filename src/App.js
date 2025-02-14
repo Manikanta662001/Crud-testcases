@@ -20,6 +20,7 @@ import BuggyComponent from "./components/error-boundary/BuggyComponent";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "./components/error-boundary/ErrorFallback";
 import ParentComponent from "./hooks/ParentComponent";
+import TextCompo from "./components/translations/TextCompo";
 function App() {
   const handleReset = () => {
     console.log("RESETING:::::");
@@ -46,7 +47,8 @@ function App() {
       <ErrorBoundary FallbackComponent={ErrorFallback} onReset={handleReset}>
         <BuggyComponent />
       </ErrorBoundary>
-      <ParentComponent/>
+      <ParentComponent />
+      <TextCompo />
     </div>
   );
 }
