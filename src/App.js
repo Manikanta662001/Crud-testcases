@@ -26,7 +26,7 @@ function App() {
   const handleReset = () => {
     console.log("RESETING:::::");
   };
-  console.log("Hello, World!");
+  console.log("Hello from My Side!");
   return (
     <div className="App">
       <h1>Hello</h1>
