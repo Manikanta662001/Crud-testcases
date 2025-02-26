@@ -21,6 +21,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "./components/error-boundary/ErrorFallback";
 import ParentComponent from "./hooks/ParentComponent";
 import TextCompo from "./components/translations/TextCompo";
+import DangerouslySetInnerHtmlCompo from "./components/DangerouslySetInnerHtmlCompo";
 function App() {
   const handleReset = () => {
     console.log("RESETING:::::");
@@ -49,6 +50,7 @@ function App() {
       </ErrorBoundary>
       <ParentComponent />
       <TextCompo />
+      <DangerouslySetInnerHtmlCompo />
     </div>
   );
 }
