@@ -9,7 +9,7 @@ const DangerouslySetInnerHtmlCompo = () => {
   const userInput = {
     __html: DOMPurify.sanitize(dirtyString),
   };
-  console.log("HTML:::", userInput);
+  console.log("HTML:::::", userInput);
   return (
     <div>
       <div dangerouslySetInnerHTML={rawHtml} />
